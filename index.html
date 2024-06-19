@@ -213,6 +213,42 @@ document.addEventListener('click', () => {
                 </div>
             </label>
         </div>
+        <script>
+          /* 비디오 부분 */
+document.addEventListener('DOMContentLoaded', function() {
+  // 이미지 요소를 선택합니다.
+  const image = document.querySelector('.container1');
+
+  // 이미지에 클릭 이벤트 리스너를 추가합니다.
+  image.addEventListener('click', function() {
+      // 새로운 슬라이드 컨테이너를 만듭니다.
+      const slideContainer = document.createElement('div');
+      slideContainer.classList.add('slide-container');
+      document.body.appendChild(slideContainer);
+
+      // 슬라이드 인 애니메이션을 시작합니다.
+      setTimeout(() => {
+          slideContainer.classList.add('slide-in');
+      }, 10); // 약간의 지연을 주어 애니메이션을 트리거합니다.
+
+      // 슬라이드 인 애니메이션 종료 후 페이지 이동
+      slideContainer.addEventListener('transitionend', () => {
+          // 페이드 아웃 애니메이션 추가
+          document.body.classList.add('fade-out');
+
+          // 페이드 아웃 애니메이션 종료 후 페이지 이동
+          document.body.addEventListener('animationend', () => {
+              // 화면의 너비를 확인하여 이동할 페이지 결정
+              if (window.innerWidth <= 430) {
+                  window.location.href = 'ui1.html';
+              } else {
+                  window.location.href = 'ui1.html';
+              }
+          });
+      });
+  });
+});
+        </script>
     </div>
 
     <div id="about" class="last">
